@@ -54,7 +54,7 @@ module freqDivnon2 #(parameter n = 5) (input clk, reset, output reg out);
             count <= 0;
             out <= 0;
         end
-        else if (count == (n-1)) begin
+        else if (count == (n/2-1)) begin
             count <= 0; 
             out <= ~out; 
         end
@@ -65,7 +65,7 @@ module freqDivnon2 #(parameter n = 5) (input clk, reset, output reg out);
 endmodule
 
 
-module main #(parameter n = 5) (input clk, reset, output out);
+module main #(parameter n = 10) (input clk, reset, output out);
     reg [31:0] count;
 
     localparam isPower2 = (n & (n - 1)) == 0;
