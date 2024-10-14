@@ -70,12 +70,13 @@ module main #(parameter n = 5) (input clk, reset, output out);
 
     localparam isPower2 = (n & (n - 1)) == 0;
     generate
-        if (isPower2) begin : gen_power_of_2
+        if (isPower2) begin : gp2
             localparam m = $clog2(n);
-            freqDiv2 #(m) divider_power_of_2 (.clk(clk), .reset(reset), .out(out));
+            freqDiv2 #(m) dp2 (.clk(clk), .reset(reset), .out(out));
         end
-        else begin : gen_non_power_of_2
-            freqDivnon2 #(n) divider_non_power_of_2 (.clk(clk), .reset(reset), .out(out));
+        else begin : gnp2
+            freqDivnon2 #(n) dpn2 (.clk(clk), .reset(reset), .out(out));
         end
     endgenerate
 endmodule
+

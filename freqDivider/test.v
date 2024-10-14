@@ -26,7 +26,7 @@ module testBench;
     wire out2;
 
     parameter integer N1 = 8;
-    parameter integer N2 = 5; 
+    parameter integer N2 = 6; 
 
     main #(N1) uut1 (
         .clk(clk),
